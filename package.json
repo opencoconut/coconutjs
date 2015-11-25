@@ -1,0 +1,24 @@
+{
+  "name": "coconutjs",
+  "version": "2.2.0",
+  "homepage": "http://coconut.co",
+  "description": "NodeJS Module to encode videos with Coconut, a Cloud Video Encoding Service built for developers",
+  "main": "coconut.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/opencoconut/coconutjs.git"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "keywords": [
+    "video",
+    "encoding",
+    "cloud",
+    "transcoding",
+    "coconut",
+    "h264"
+  ],
+  "author": "Bruno Celeste",
+  "license": "MIT"
+}
