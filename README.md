@@ -64,6 +64,15 @@ coconut.createJob({
 
 Note that you can use the environment variable `COCONUT_API_KEY` to set your API key.
 
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+
 *Released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).*
 
 ---
