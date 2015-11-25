@@ -70,6 +70,5 @@ Note that you can use the environment variable `COCONUT_API_KEY` to set your API
 
 * Coconut website: http://coconut.co
 * API documentation: http://coconut.co/docs
-* Github: http://github.com/opencoconut/coconut.rb
 * Contact: [support@coconut.co](mailto:support@coconut.co)
 * Twitter: [@OpenCoconut](http://twitter.com/opencoconut)
