@@ -19,7 +19,7 @@ set webhook = http://mysite.com/webhook/coconut?videoId=$vid
 
 -> mp4  = $s3/videos/video_$vid.mp4
 -> webm = $s3/videos/video_$vid.webm
--> jpg_300x = $s3/previews/thumbs_#num#.jpg, number=3
+-> jpg:300x = $s3/previews/thumbs_#num#.jpg, number=3
 ```
 
 Here is the javascript code to submit the config file:
@@ -55,7 +55,7 @@ coconut.createJob({
   'outputs': {
     'mp4': s3 + '/videos/video_' + vid + '.mp4',
     'webm': s3 + '/videos/video_' + vid + '.webm',
-    'jpg_300x': s3 + '/previews/thumbs_#num#.jpg, number=3'
+    'jpg:300x': s3 + '/previews/thumbs_#num#.jpg, number=3'
   }
 }, function(job) {
   //...
