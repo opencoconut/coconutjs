@@ -25,7 +25,7 @@ set webhook = http://mysite.com/webhook/coconut?videoId=$vid
 Here is the javascript code to submit the config file:
 
 ```javascript
-var coconut = require('coconut');
+var coconut = require('coconutjs');
 
 coconut.createJob({
   'api_key': 'k-api-key',
@@ -45,6 +45,8 @@ coconut.createJob({
 You can also create a job without a config file. To do that you will need to give every settings in the method parameters. Here is the exact same job but without a config file:
 
 ```javascript
+var coconut = require('coconutjs');
+
 vid = 1234
 s3 = 's3://accesskey:secretkey@mybucket'
 
