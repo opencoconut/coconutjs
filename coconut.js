@@ -38,7 +38,13 @@ module.exports = {
       });
 
       res.on('end', function () {
-        var resultObject = JSON.parse(responseString);
+        var resultObject;
+        try {
+          resultObject = JSON.parse(responseString);
+        } catch(error) {
+          resultObject = null;
+        }
+
         if(callback) {
           callback(resultObject);
         }
