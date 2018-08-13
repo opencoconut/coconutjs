@@ -54,6 +54,7 @@ coconut.createJob({
   'api_key': 'k-api-key',
   'source': 'http://yoursite.com/media/video.mp4',
   'webhook': 'http://mysite.com/webhook/coconut?videoId=' + vid,
+  'get_webhook_metadata': true,
   'outputs': {
     'mp4': s3 + '/videos/video_' + vid + '.mp4',
     'webm': s3 + '/videos/video_' + vid + '.webm',
