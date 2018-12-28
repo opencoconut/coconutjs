@@ -98,6 +98,12 @@ module.exports = {
     return new_conf.join('\n');
   },
   createJob: function(options, callback) {
+    if (typeof callback === 'undefined') {
+      return new Promise(function(resolve) {
+        module.exports.submit(module.exports.config(options), options.api_key, resolve);
+      });
+    }
+
     this.submit(this.config(options), options.api_key, callback);
   }
 }
