@@ -9,7 +9,7 @@ var USER_AGENT = 'Coconut/2.2.0 (NodeJS)';
 module.exports = {
 
   submit: function(configContent, apiKey, callback) {
-    coconutURL = url.parse(process.env.HEYWATCH_URL || 'https://api.coconut.co');
+    coconutURL = url.parse(process.env.COCONUT_URL || 'https://api.coconut.co');
 
     if(!apiKey) {
       apiKey = process.env.COCONUT_API_KEY;
