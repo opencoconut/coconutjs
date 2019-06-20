@@ -4,7 +4,7 @@ var https = require('https');
 var url = require('url');
 var fs = require('fs');
 
-var USER_AGENT = 'Coconut/2.2.0 (NodeJS)';
+var USER_AGENT = 'Coconut/2.4.0 (NodeJS)';
 
 module.exports = {
 
