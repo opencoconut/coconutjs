@@ -64,6 +64,25 @@ coconut.createJob({
 });
 ```
 
+Other example usage:
+
+```javascript
+// Getting info about a job
+job = coconut.getJob(18370773, function(job) {
+  //...
+});
+
+// Retrieving metadata
+coconut.get_all_metadata(18370773, function(metadata) {
+  // ...
+});
+
+// Retrieving the source file metadata only
+coconut.get_metadata_for(18370773, 'source', function(metadata) {
+  // ...
+});
+```
+
 Note that you can use the environment variable `COCONUT_API_KEY` to set your API key.
 
 ## Contributing
