@@ -73,12 +73,12 @@ job = coconut.getJob(18370773, function(job) {
 });
 
 // Retrieving metadata
-coconut.get_all_metadata(18370773, function(metadata) {
+coconut.getAllMetadata(18370773, function(metadata) {
   // ...
 });
 
 // Retrieving the source file metadata only
-coconut.get_metadata_for(18370773, 'source', function(metadata) {
+coconut.getMetadataFor(18370773, 'source', function(metadata) {
   // ...
 });
 ```
