@@ -127,6 +127,11 @@ module.exports = {
       conf.push('set webhook = ' + webhook);
     }
 
+    api_version = options.api_version;
+    if(api_version) {
+      conf.push('set api_version = ' + api_version);
+    }
+
     outputs = options.outputs;
     if(outputs) {
       for(format in outputs) {
