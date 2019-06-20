@@ -124,7 +124,7 @@ exports.testGetJobInfo = function(test) {
   });
 
   coconut.submit(conf, null, function(job) {
-    coconut.getJob(job.id, null, function(info) {
+    coconut.getJob(job.id, function(info) {
       test.equal(info.id, job.id);
       test.done();
     });
@@ -141,7 +141,7 @@ exports.testGetAllMetadata = function(test) {
 
   coconut.submit(conf, null, function(job) {
     setTimeout(function() {
-      coconut.getAllMetadata(job.id, null, function(metadata) {
+      coconut.getAllMetadata(job.id, function(metadata) {
         test.notEqual(undefined, metadata);
         test.done();
       });
@@ -161,7 +161,7 @@ exports.testGetSourceMetadata = function(test) {
   coconut.submit(conf, null, function(job) {
 
       setTimeout(function() {
-        coconut.getMetadataFor(job.id, 'source', null, function(metadata) {
+        coconut.getMetadataFor(job.id, 'source', function(metadata) {
           test.notEqual(undefined, metadata);
           test.done();
         });

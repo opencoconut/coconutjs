@@ -152,31 +152,31 @@ module.exports = {
 
     this.submit(this.config(options), options.api_key, callback);
   },
-  getJob: function(jid, api_key, callback) {
+  getJob: function(jid, callback) {
     if (typeof callback === 'undefined') {
       return new Promise(function(resolve) {
-        module.exports.get('/v1/jobs/' + jid, api_key, resolve);
+        module.exports.get('/v1/jobs/' + jid, null, resolve);
       });
     }
 
-    this.get('/v1/jobs/' + jid, api_key, callback);
+    this.get('/v1/jobs/' + jid, null, callback);
   },
-  getAllMetadata: function(jid, api_key, callback) {
+  getAllMetadata: function(jid, callback) {
     if (typeof callback === 'undefined') {
       return new Promise(function(resolve) {
-        module.exports.get('/v1/metadata/jobs/' + jid, api_key, resolve);
+        module.exports.get('/v1/metadata/jobs/' + jid, null, resolve);
       });
     }
 
-    this.get('/v1/metadata/jobs/' + jid, api_key, callback);
+    this.get('/v1/metadata/jobs/' + jid, null, callback);
   },
-  getMetadataFor: function(jid, source_or_output, api_key, callback) {
+  getMetadataFor: function(jid, source_or_output, callback) {
     if (typeof callback === 'undefined') {
       return new Promise(function(resolve) {
-        module.exports.get('/v1/metadata/jobs/' + jid + '/' + source_or_output, api_key, resolve);
+        module.exports.get('/v1/metadata/jobs/' + jid + '/' + source_or_output, null, resolve);
       });
     }
 
-    this.get('/v1/metadata/jobs/' + jid + '/' + source_or_output, api_key, callback);
+    this.get('/v1/metadata/jobs/' + jid + '/' + source_or_output, null, callback);
   }
 }
