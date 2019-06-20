@@ -20,5 +20,8 @@
     "h264"
   ],
   "author": "Bruno Celeste",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "nodeunit": "^0.11.3"
+  }
 }

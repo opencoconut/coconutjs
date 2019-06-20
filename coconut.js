@@ -56,6 +56,52 @@ module.exports = {
     req.end();
   },
 
+  get: function(path, apiKey, callback) {
+    coconutURL = url.parse(process.env.COCONUT_URL || 'https://api.coconut.co');
+
+    if(!apiKey) {
+      apiKey = process.env.COCONUT_API_KEY;
+    }
+
+    var reqOptions = {
+      hostname: coconutURL.hostname,
+      port: coconutURL.port || (coconutURL.protocol == 'https:' ? 443 : 80),
+      path: path,
+      method: 'GET',
+      auth: apiKey+':',
+      headers: {
+        'User-Agent': USER_AGENT,
+        'Content-Type': 'text/plain',
+        'Accept': 'application/json'
+      }
+    };
+
+    var req = (coconutURL.protocol == 'https:' ? https : http).request(reqOptions, function(res) {
+      res.setEncoding('utf8');
+      var responseString = '';
+
+      res.on('data', function(data) {
+        responseString += data;
+      });
+
+      res.on('end', function () {
+        var resultObject = JSON.parse(responseString);
+        if(callback) {
+          callback(resultObject);
+        }
+      });
+    });
+
+    req.on('error', function(e) {
+      console.log('problem with request: ' + e.message);
+      if(callback) {
+        callback(null);
+      }
+    });
+
+    req.end();
+  },
+
   config: function(options) {
     conf_file = options.conf;
     if(conf_file) {
@@ -105,5 +151,32 @@ module.exports = {
     }
 
     this.submit(this.config(options), options.api_key, callback);
+  },
+  getJob: function(jid, api_key, callback) {
+    if (typeof callback === 'undefined') {
+      return new Promise(function(resolve) {
+        module.exports.get('/v1/jobs/' + jid, api_key, resolve);
+      });
+    }
+
+    this.get('/v1/jobs/' + jid, api_key, callback);
+  },
+  getAllMetadata: function(jid, api_key, callback) {
+    if (typeof callback === 'undefined') {
+      return new Promise(function(resolve) {
+        module.exports.get('/v1/metadata/jobs/' + jid, api_key, resolve);
+      });
+    }
+
+    this.get('/v1/metadata/jobs/' + jid, api_key, callback);
+  },
+  getMetadataFor: function(jid, source_or_output, api_key, callback) {
+    if (typeof callback === 'undefined') {
+      return new Promise(function(resolve) {
+        module.exports.get('/v1/metadata/jobs/' + jid + '/' + source_or_output, api_key, resolve);
+      });
+    }
+
+    this.get('/v1/metadata/jobs/' + jid + '/' + source_or_output, api_key, callback);
   }
 }

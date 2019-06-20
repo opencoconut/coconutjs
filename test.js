@@ -10,7 +10,7 @@ exports.testSubmitConfig = function(test) {
 
   coconut.submit(conf, null, function(job) {
     test.notEqual(undefined, job);
-    test.equal('ok', job.status);
+    test.equal('processing', job.status);
     test.ok(job.id > 0);
     test.done();
   });
@@ -96,7 +96,7 @@ exports.testGenerateConfigWithFile = function(test) {
   ].join("\n")
 
   test.equal(generated, conf);
-  fs.unlink('coconut.conf');
+  fs.unlinkSync('coconut.conf');
   test.done();
 }
 
@@ -108,10 +108,65 @@ exports.testSubmitFile = function(test) {
     'source': 'https://s3-eu-west-1.amazonaws.com/files.coconut.co/test.mp4',
     'vars': {'vid': 1234, 'user': 5098}
   }, function(job) {
-    test.equal('ok', job.status);
+    test.equal('processing', job.status);
     test.ok(job.id > 0);
-    fs.unlink('coconut.conf');
+    fs.unlinkSync('coconut.conf');
     test.done();
   });
 
+}
+
+exports.testGetJobInfo = function(test) {
+  conf = coconut.config({
+    'source': 'https://s3-eu-west-1.amazonaws.com/files.coconut.co/test.mp4',
+    'webhook': 'http://mysite.com/webhook',
+    'outputs': {'mp4': 's3://a:s@bucket/video.mp4'}
+  });
+
+  coconut.submit(conf, null, function(job) {
+    coconut.getJob(job.id, null, function(info) {
+      test.equal(info.id, job.id);
+      test.done();
+    });
+
+  });
+}
+
+exports.testGetAllMetadata = function(test) {
+  conf = coconut.config({
+    'source': 'https://s3-eu-west-1.amazonaws.com/files.coconut.co/test.mp4',
+    'webhook': 'http://mysite.com/webhook',
+    'outputs': {'mp4': 's3://a:s@bucket/video.mp4'}
+  });
+
+  coconut.submit(conf, null, function(job) {
+    setTimeout(function() {
+      coconut.getAllMetadata(job.id, null, function(metadata) {
+        test.notEqual(undefined, metadata);
+        test.done();
+      });
+
+    }, 4000);
+
+  });
+}
+
+exports.testGetSourceMetadata = function(test) {
+  conf = coconut.config({
+    'source': 'https://s3-eu-west-1.amazonaws.com/files.coconut.co/test.mp4',
+    'webhook': 'http://mysite.com/webhook',
+    'outputs': {'mp4': 's3://a:s@bucket/video.mp4'}
+  });
+
+  coconut.submit(conf, null, function(job) {
+
+      setTimeout(function() {
+        coconut.getMetadataFor(job.id, 'source', null, function(metadata) {
+          test.notEqual(undefined, metadata);
+          test.done();
+        });
+
+      }, 4000);
+
+  });
 }
