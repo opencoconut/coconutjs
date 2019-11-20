@@ -38,7 +38,12 @@ module.exports = {
       });
 
       res.on('end', function () {
-        var resultObject = JSON.parse(responseString);
+        var resultObject = null;
+        try {
+          resultObject = JSON.parse(responseString);
+        } catch(e) {
+          console.log('problem with request: ' + e);
+        }
         if(callback) {
           callback(resultObject);
         }
@@ -85,7 +90,12 @@ module.exports = {
       });
 
       res.on('end', function () {
-        var resultObject = JSON.parse(responseString);
+        var resultObject = null;
+        try {
+          resultObject = JSON.parse(responseString);
+        } catch(e) {
+          console.log('problem with request: ' + e);
+        }
         if(callback) {
           callback(resultObject);
         }
