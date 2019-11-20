@@ -33,11 +33,13 @@ coconut.createJob({
   'source': 'https://s3-eu-west-1.amazonaws.com/files.coconut.co/test.mp4',
   'vars': {'vid': 1234}
 }, function(job) {
-  if(job.status == 'ok') {
+  if(job && job.status == 'ok') {
     console.log(job.id);
-  } else {
+  } else if (job) {
     console.log(job.error_code);
     console.log(job.error_message);
+  } else {
+    console.log('Error creating job')
   }
 });
 ```
