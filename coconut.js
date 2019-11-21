@@ -42,7 +42,7 @@ module.exports = {
         try {
           resultObject = JSON.parse(responseString);
         } catch(e) {
-          console.log('problem with request: ' + e);
+          console.log('problem with request: ' + e.message);
         }
         if(callback) {
           callback(resultObject);
@@ -94,7 +94,7 @@ module.exports = {
         try {
           resultObject = JSON.parse(responseString);
         } catch(e) {
-          console.log('problem with request: ' + e);
+          console.log('problem with request: ' + e.message);
         }
         if(callback) {
           callback(resultObject);
