@@ -134,7 +134,7 @@ module.exports = {
 
     webhook = options.webhook;
     if(webhook) {
-      conf.push('set webhook = ' + webhook);
+      conf.push('set webhook = ' + webhook + (options.get_webhook_metadata ? ', metadata=true' : ''));
     }
 
     api_version = options.api_version;
