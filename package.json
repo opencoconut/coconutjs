@@ -1,7 +1,7 @@
 {
   "name": "coconutjs",
-  "version": "2.4.2",
-  "homepage": "http://coconut.co",
+  "version": "3.0.0",
+  "homepage": "https://coconut.co",
   "description": "NodeJS Module to encode videos with Coconut, a Cloud Video Encoding Service built for developers",
   "main": "coconut.js",
   "repository": {
@@ -21,7 +21,10 @@
   ],
   "author": "Bruno Celeste",
   "license": "MIT",
-  "devDependencies": {
-    "nodeunit": "^0.11.3"
+  "dependencies": {
+    "mocha": "^8.3.2"
+  },
+  "scripts": {
+    "test": "mocha coconut.test.js"
   }
 }
