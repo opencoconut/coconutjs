@@ -23,7 +23,7 @@ The library needs you to set your API key which can be found in your [dashboard]
 ```javascript
 const Coconut = require('coconutjs');
 
-coconut = new Coconut.Client('k-api-key');
+const coconut = new Coconut.Client('k-api-key');
 
 coconut.notification = {
   'type': 'http',
