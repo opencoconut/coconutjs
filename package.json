@@ -1,6 +1,6 @@
 {
   "name": "coconutjs",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "homepage": "https://coconut.co",
   "description": "NodeJS Module to encode videos with Coconut, a Cloud Video Encoding Service built for developers",
   "main": "coconut.js",
