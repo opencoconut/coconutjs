@@ -18,7 +18,7 @@ npm install coconutjs
 
 ## Usage
 
-The library needs you to set your API key which can be found in your [dashboard](https://app.coconut.co/api). Webhook URL and storage settings are optional but are very convenient because you set them only once.
+The library needs you to set your API key which can be found in your [dashboard](https://app.coconut.co/api). Notification and storage settings are optional but are very convenient because you set them only once.
 
 ```javascript
 const Coconut = require('coconutjs');
@@ -39,6 +39,12 @@ coconut.storage = {
     'secret_access_key': 'secret-key'
   }
 }
+```
+
+Setting up your region:
+
+```javascript
+coconut.region = "eu-west-1"
 ```
 
 ## Creating a job
