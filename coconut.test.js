@@ -108,4 +108,10 @@ describe("Job creation", function() {
       assert.strictEqual(err.error_code, "output_param_not_valid");
     });
   });
+
+  it("should not blow up when job ID is empty", function() {
+    const coconut = new Coconut.Client(process.env.COCONUT_API_KEY);
+
+    coconut.Job.retrieve()
+  });
 });

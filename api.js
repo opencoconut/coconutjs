@@ -32,7 +32,12 @@ class API {
 
       res.on('end', function () {
         var resultObject = null;
-        resultObject = JSON.parse(responseString);
+
+        // Don't JSON parse if body is empty
+        // 404 errors return empty body
+        if(responseString.trim() != "") {
+          resultObject = JSON.parse(responseString);
+        }
 
         if(res.statusCode > 399) {
           if(res.statusCode == 400 || res.statusCode == 401) {
