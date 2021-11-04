@@ -3,7 +3,7 @@ const http = require('http');
 const https = require('https');
 const error = require("./error");
 
-const USER_AGENT = 'Coconut/v2 NodeJSBindings/' + require("./version").version;
+const USER_AGENT = 'Coconut/v2 NodeJSBindings/' + require("./version").VERSION;
 
 class API {
   static request(cli, method, path, data, callback) {
