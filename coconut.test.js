@@ -65,6 +65,30 @@ describe("Job creation", function() {
     });
   });
 
+  it("should create a job with promise", function() {
+    const coconut = new Coconut.Client(process.env.COCONUT_API_KEY);
+
+    coconut.notification = NOTIFICATION
+    coconut.storage = STORAGE
+
+    const promise = coconut.Job.create({
+      "input": {"url": INPUT_URL},
+      "outputs": {
+        "mp4": {
+          "path": "/video.mp4",
+          "duration": 1
+        }
+      }
+    });
+
+    promise.then(function(job) {
+      if(job) {
+        assert.strictEqual(null, err);
+        assert.strictEqual(job.status, "job.starting");
+      }
+    });
+  });
+
   it("should not create a job because of error", function() {
     const coconut = new Coconut.Client(process.env.COCONUT_API_KEY);
 

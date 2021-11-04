@@ -10,9 +10,11 @@ class Job {
       opts = Object.assign({}, opts, {"storage": this.cli.storage});
     }
 
+    var that = this
+
     if (typeof callback === 'undefined') {
       return new Promise(function(resolve) {
-        module.exports.API.request(this.cli, "POST", "/jobs", opts, resolve);
+        API.request(that.cli, "POST", "/jobs", opts, resolve);
       });
     }
 
@@ -20,9 +22,11 @@ class Job {
   }
 
   static retrieve(job_id, callback) {
+    var that = this
+
     if (typeof callback === 'undefined') {
       return new Promise(function(resolve) {
-        module.exports.API.request(this.cli, "GET", "/jobs/" + job_id, null, resolve);
+        API.request(that.cli, "GET", "/jobs/" + job_id, null, resolve);
       });
     }
 
