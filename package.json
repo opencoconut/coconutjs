@@ -6,7 +6,7 @@
   "main": "coconut.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/opencoconut/coconutjs.git"
+    "url": "git://github.com/BrandedEntertainmentNetwork/coconutjs"
   },
   "engines": {
     "node": ">=0.8"
@@ -20,11 +20,5 @@
     "h264"
   ],
   "author": "Bruno Celeste",
-  "license": "MIT",
-  "dependencies": {
-    "mocha": "10.1.0"
-  },
-  "scripts": {
-    "test": "mocha coconut.test.js"
-  }
+  "license": "MIT"
 }
