@@ -21,10 +21,10 @@
   ],
   "author": "Bruno Celeste",
   "license": "MIT",
-  "dependencies": {
-    "mocha": "^8.3.2"
-  },
   "scripts": {
     "test": "mocha coconut.test.js"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }
