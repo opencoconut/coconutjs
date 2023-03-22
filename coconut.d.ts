@@ -203,8 +203,8 @@ export type ClientConfig = {
 };
 
 export class Client {
-  Job: Job;
-  Metadata: Metadata;
+  Job: typeof Job;
+  Metadata: typeof Metadata;
 
   constructor(api_key: string, config: ClientConfig);
 
