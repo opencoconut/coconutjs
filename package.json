@@ -4,6 +4,7 @@
   "homepage": "https://coconut.co",
   "description": "NodeJS Module to encode videos with Coconut, a Cloud Video Encoding Service built for developers",
   "main": "coconut.js",
+  "types": "coconut.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/opencoconut/coconutjs.git"
