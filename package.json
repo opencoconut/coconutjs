@@ -1,30 +1,30 @@
 {
-  "name": "coconutjs",
-  "version": "3.0.3",
-  "homepage": "https://coconut.co",
-  "description": "NodeJS Module to encode videos with Coconut, a Cloud Video Encoding Service built for developers",
-  "main": "coconut.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/opencoconut/coconutjs.git"
-  },
-  "engines": {
-    "node": ">=0.8"
-  },
-  "keywords": [
-    "video",
-    "encoding",
-    "cloud",
-    "transcoding",
-    "coconut",
-    "h264"
-  ],
-  "author": "Bruno Celeste",
-  "license": "MIT",
-  "scripts": {
-    "test": "mocha coconut.test.js"
-  },
-  "devDependencies": {
-    "mocha": "^10.2.0"
-  }
+    "name": "coconutjs",
+    "version": "3.0.4",
+    "homepage": "https://coconut.co",
+    "description": "NodeJS Module to encode videos with Coconut, a Cloud Video Encoding Service built for developers",
+    "main": "coconut.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/opencoconut/coconutjs.git"
+    },
+    "engines": {
+        "node": ">=0.8"
+    },
+    "keywords": [
+        "video",
+        "encoding",
+        "cloud",
+        "transcoding",
+        "coconut",
+        "h264"
+    ],
+    "author": "Bruno Celeste",
+    "license": "MIT",
+    "scripts": {
+        "test": "mocha coconut.test.js"
+    },
+    "devDependencies": {
+        "mocha": "^10.2.0"
+    }
 }
